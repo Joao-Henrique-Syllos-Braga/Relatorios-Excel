@@ -113,9 +113,6 @@ totalHonorario(df)
 # HONORÁRIOS CONTABEIS --------------------------------------------------------------
 
 # DESPESAS VARIADAS -----------------------------------------------------------------
-
-# def despesas(data):    
-
 def mesDespesa(line, row, data, index):
     data[index][line.month] += row["Valor"]
 total = 0
