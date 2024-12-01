@@ -21,8 +21,11 @@ data = [
     ["Retirada Sérgio Augusto Braga", 0, 0, 0, 0, 0, 0 ,0 ,0, 0, 0, 0, 0, 0 ],
 
     [2.03],
-    ["Honorários Contabeis", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    
+    ["Honorários Contabeis", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+
+    [2.04, "", "", "", "", "", "", "", "", "", "", "", "", 0],
+    ["Material de informatica", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],         #10
+    ["Material de escritório", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]           #11
 ]
 #pegar a linha que tem o valor 1.1 V
 #pegar o valor da 
@@ -33,10 +36,9 @@ data = [
 
 # RECEITA ---------------------------------------------------------------------------
 def mesReceita(line, row, data):
-    data[1][line.month] = row["Valor"]
+    data[1][line.month] += row["Valor"]
 
 def totalReceita(df):
-    
     total = 0
     for index, row in df.iterrows():
         if row["Classe"] == 1.1:
@@ -62,7 +64,7 @@ def totalProlabore(df):
     def prolabore(data):
         total = 0
         for x in range(3, 13):
-            data[3][x-2] = data[4][x-2] + data[5][x-2] + data[6][x-2]
+            data[3][x-2] += data[4][x-2] + data[5][x-2] + data[6][x-2]
             total += data[4][x-2] + data[5][x-2] + data[6][x-2]
         return total
 
@@ -75,10 +77,8 @@ def totalProlabore(df):
                     match row["Descrição"].lower():
                         case "irrf/inss prolabore":
                             mesProlabore(otherV, row, data, 4)
-
                         case "retirada ana paula syllos braga":
                             mesProlabore(otherV, row, data, 5)
-
                         case "retirada sérgio augusto braga":
                             mesProlabore(otherV, row, data, 6)
                     prolabore(data)
@@ -96,7 +96,7 @@ totalProlabore(df)
 # HONORÁRIOS CONTABEIS --------------------------------------------------------------
 def totalHonorario(df):
     def mesHonorario(line, row, data):
-        data[8][line.month] = row["Valor"]
+        data[8][line.month] += row["Valor"]
 
     total = 0
     for index, row in df.iterrows():
@@ -111,5 +111,30 @@ def totalHonorario(df):
     data[8][13] = total
 totalHonorario(df)
 # HONORÁRIOS CONTABEIS --------------------------------------------------------------
+
+# DESPESAS VARIADAS -----------------------------------------------------------------
+
+# def despesas(data):    
+
+def mesDespesa(line, row, data, index):
+    data[index][line.month] += row["Valor"]
+total = 0
+for index, row in df.iterrows():
+    if row["Classe"] == 2.04:
+        if isinstance(row["Competência"], pd.Timestamp):
+            otherV = row["Competência"]
+            if otherV.year == 2024:
+                total += row["Valor"]
+                match row["Descrição"].lower():
+                    case "material de escritório":
+                        mesDespesa(otherV, row, data, 11)
+                    case "material de informatica":
+                        mesDespesa(otherV, row, data, 10)
+
+data[9][13] = total
+data[10][13] = sum(data[10][1:13])
+data[11][13] += sum(data[11][1:13])
+
+# DESPESAS VARIADAS -----------------------------------------------------------------
 for x in data:
     print("\n", x)
