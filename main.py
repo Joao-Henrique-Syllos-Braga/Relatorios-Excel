@@ -1,6 +1,6 @@
 import pandas as pd
 
-def data():
+def data(year):
 
     # Carregar os dados
     df = pd.read_excel("00-Acompanhamento SAB TECH-OUT 24.xlsx", sheet_name=0)
@@ -71,7 +71,7 @@ def data():
         for x in range(3, 13):
             data[3][x-2] += data[4][x-2] + data[5][x-2] + data[6][x-2]
 
-    year = 2024
+    year = year
 
     for index, row in df.iterrows():
         classe = row["Classe"]
@@ -134,7 +134,7 @@ def data():
             setMonth(comp, row, data, 30)
         elif classe == 2.51 and comp.year == year:
             setMonth(comp, row, data, 32)
-            
+
     data[1][13] += sum(data[1][1:12])
 
     data[4][13] += sum(data[4][1:12])
