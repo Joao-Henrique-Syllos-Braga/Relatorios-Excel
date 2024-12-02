@@ -1,6 +1,7 @@
 from openpyxl import Workbook
 from openpyxl.styles import Alignment, PatternFill, Font
 from main import data  # Certifique-se de que o arquivo `dados.py` está correto e no mesmo diretório
+from dado import datatotal
 
 # Criar um novo arquivo Excel
 workbook = Workbook()
@@ -10,6 +11,8 @@ sheet_2024 = workbook.active
 sheet_2024.title = "2024"
 
 sheet_2023 = workbook.create_sheet(title="2023")
+
+sheet_total = workbook.create_sheet(title="Total")
 
 # Função para formatar números negativos e com duas casas decimais
 def format_number(value):
@@ -70,10 +73,13 @@ def format_sheet(sheet, dados):
 # Obter os dados de 2024 e 2023
 dados_2024 = data(2024)
 dados_2023 = data(2023)
+dados_total = datatotal()
+
 
 # Formatar as sheets
 format_sheet(sheet_2024, dados_2024)
 format_sheet(sheet_2023, dados_2023)
+format_sheet(sheet_total, dados_total)
 
 # Salvar o arquivo
 workbook.save("Arquivo_2024_2023.xlsx")
