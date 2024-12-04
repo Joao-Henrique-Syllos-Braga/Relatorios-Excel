@@ -1,9 +1,9 @@
 import pandas as pd
 
-def datatotal():
+def datatotal(file):
 
     # Carregar os dados
-    df = pd.read_excel("00-Acompanhamento SAB TECH-OUT 24.xlsx", sheet_name=0)
+    df = pd.read_excel(file, sheet_name=0)
 
     # Substituir valores nulos na coluna 'Valor' por 0
     df['Valor'] = df['Valor'].fillna(0)
