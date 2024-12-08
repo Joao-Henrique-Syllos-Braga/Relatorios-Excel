@@ -1,0 +1,15 @@
+C:\Users\João\Relatorios-Excel\relatorio\bin\Debug\net9.0-windows\ExcelExplorer.exe
+C:\Users\João\Relatorios-Excel\relatorio\bin\Debug\net9.0-windows\ExcelExplorer.deps.json
+C:\Users\João\Relatorios-Excel\relatorio\bin\Debug\net9.0-windows\ExcelExplorer.runtimeconfig.json
+C:\Users\João\Relatorios-Excel\relatorio\bin\Debug\net9.0-windows\ExcelExplorer.dll
+C:\Users\João\Relatorios-Excel\relatorio\bin\Debug\net9.0-windows\ExcelExplorer.pdb
+C:\Users\João\Relatorios-Excel\relatorio\obj\Debug\net9.0-windows\ExcelExplorer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\João\Relatorios-Excel\relatorio\obj\Debug\net9.0-windows\ExcelExplorer.AssemblyInfoInputs.cache
+C:\Users\João\Relatorios-Excel\relatorio\obj\Debug\net9.0-windows\ExcelExplorer.AssemblyInfo.cs
+C:\Users\João\Relatorios-Excel\relatorio\obj\Debug\net9.0-windows\ExcelExplorer.csproj.CoreCompileInputs.cache
+C:\Users\João\Relatorios-Excel\relatorio\obj\Debug\net9.0-windows\ExcelExplorer.sourcelink.json
+C:\Users\João\Relatorios-Excel\relatorio\obj\Debug\net9.0-windows\ExcelExplorer.dll
+C:\Users\João\Relatorios-Excel\relatorio\obj\Debug\net9.0-windows\refint\ExcelExplorer.dll
+C:\Users\João\Relatorios-Excel\relatorio\obj\Debug\net9.0-windows\ExcelExplorer.pdb
+C:\Users\João\Relatorios-Excel\relatorio\obj\Debug\net9.0-windows\ExcelExplorer.genruntimeconfig.cache
+C:\Users\João\Relatorios-Excel\relatorio\obj\Debug\net9.0-windows\ref\ExcelExplorer.dll
