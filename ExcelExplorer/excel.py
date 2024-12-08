@@ -1,10 +1,18 @@
+import os
 from openpyxl import Workbook
 from openpyxl.styles import Alignment, PatternFill, Font
-from main import data  # Certifique-se de que o arquivo `dados.py` está correto e no mesmo diretório
+from main import data
 from dado import datatotal
 
 
-def createExcel(file):
+def createExcel(file, localFile):
+    print("Começo da execução")
+    
+    # Verificar se o diretório existe
+    if not os.path.exists(localFile):
+        print(f"O diretório {localFile} não existe. Não foi possível salvar o arquivo.")
+        return  # Retorna sem salvar o arquivo, pois o diretório não existe
+
     # Criar um novo arquivo Excel
     workbook = Workbook()
 
@@ -72,16 +80,29 @@ def createExcel(file):
             cell.fill = PatternFill(start_color="000080", end_color="000080", fill_type="solid")  # Cor azul marinho
             cell.font = Font(color="FFFFFF")  # Texto branco
 
+    # print("Obtenção de dados")
     # Obter os dados de 2024 e 2023
+    # print("Obtenção de dados 01")
     dados_2024 = data(2024, file)
+    # print("Obtenção de dados 02")
     dados_2023 = data(2023, file)
+    # print("Obtenção de dados 2")
     dados_total = datatotal(file)
 
 
+    # print("Formatar sheets")
     # Formatar as sheets
     format_sheet(sheet_2024, dados_2024)
     format_sheet(sheet_2023, dados_2023)
     format_sheet(sheet_total, dados_total)
 
-    # Retornando o workbook para armazena-lo em uma variavel
-    return workbook
+    # print("Nome do arquivo")
+    nome_arquivo = "00-Acompanhamento SAB TECH-OUT 24.xlsx"
+
+    # print("Join OS")
+    caminho_completo = os.path.join(localFile, nome_arquivo)
+    print(caminho_completo)
+
+    # Salvar o arquivo no caminho correto
+    workbook.save(caminho_completo)
+    print("Arquivo salvo no caminho:", caminho_completo)

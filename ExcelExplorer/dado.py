@@ -199,8 +199,6 @@ def datatotal(file):
     data[31][13] += sum(data[32][1:12])
     data[32][13] += sum(data[32][1:12])
 
-    for x in data:
-        print("\n", x)
 
     return data
 

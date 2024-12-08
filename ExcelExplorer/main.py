@@ -199,9 +199,6 @@ def data(year, file):
     data[31][13] += sum(data[32][1:12])
     data[32][13] += sum(data[32][1:12])
 
-    for x in data:
-        print("\n", x)
-
     return data
 
 #1.10, 2.01, 2.03, 2.04, 2.05, 2.06, 2.07, 2.08, 2.09, 2.50, 2.51
