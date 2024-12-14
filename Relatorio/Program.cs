@@ -9,21 +9,26 @@ class Program
     {
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
-
+        int[] back = new int[3] { 38, 38, 38 };
+        int[] text = new int[3] { 10, 151, 255 };
         Form form = new Form
         {
             Text = "Explorador de Arquivos",
             Width = 400,
-            Height = 300
+            Height = 300,
+            BackColor = Color.FromArgb(back[0], back[1], back[2])
         };
 
         // Botão para abrir arquivo
         Button button = new Button
         {
             Text = "Abrir Arquivo",
+            ForeColor = Color.FromArgb(text[0], text[1], text[2]),
             Width = 150,
             Height = 40,
-            Location = new System.Drawing.Point(120, 80)
+            Location = new System.Drawing.Point(120, 80),
+            BackColor = Color.FromArgb(back[0], back[1], back[2]),
+            FlatStyle = FlatStyle.Flat,
         };
         form.Controls.Add(button);
 
@@ -31,9 +36,12 @@ class Program
         Button localSel = new Button
         {
             Text = "Selecionar Local",
+            ForeColor = Color.FromArgb(text[0], text[1], text[2]),
             Width = 150,
             Height = 40,
-            Location = new System.Drawing.Point(120, 130)
+            Location = new System.Drawing.Point(120, 130),
+            BackColor = Color.FromArgb(back[0], back[1], back[2]),
+            FlatStyle = FlatStyle.Flat
         };
         form.Controls.Add(localSel);
 
@@ -41,9 +49,12 @@ class Program
         Button processar = new Button
         {
             Text = "Processar Arquivo",
+            ForeColor = Color.FromArgb(text[0], text[1], text[2]),
             Width = 150,
             Height = 40,
-            Location = new System.Drawing.Point(120, 180)
+            Location = new System.Drawing.Point(120, 180),
+            BackColor = Color.FromArgb(back[0], back[1], back[2]),
+            FlatStyle = FlatStyle.Flat
         };
         form.Controls.Add(processar);
 
