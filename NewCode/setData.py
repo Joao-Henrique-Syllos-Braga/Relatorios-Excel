@@ -24,6 +24,9 @@ def data():
             classe = row["Classe"]
             valor = row["Valor"]
             comp = row["Competência"]
+            desc = row["Descrição"]
+
+            lista_items = []
 
             # Verifica se a classe corresponde à classe atual
             if classe == newClasse and isinstance(comp, pd.Timestamp):
@@ -31,6 +34,9 @@ def data():
                 if 1 <= mes <= 12 and comp.year == 2024:  # Verifica se o mês é válido
                     valor = round(valor, 2)
                     curret_local[mes - 1] += valor  # Soma o valor no índice correspondente ao mês
+
+                    if desc in lista_items:
+                        data.append([])
 
         # Adiciona os dados da classe atual à lista geral
         data.append(curret_local)
