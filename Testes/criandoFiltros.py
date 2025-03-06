@@ -25,5 +25,3 @@ def retornandoUmaListaNovaDeFiltros(lista, opcao):
     # Retornar lista e dicionario de parametros
     elif opcao == 2:
         return listaFiltros, parametros
-        
-    return Filtros
